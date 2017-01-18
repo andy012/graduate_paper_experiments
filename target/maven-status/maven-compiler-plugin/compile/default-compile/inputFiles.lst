@@ -1,0 +1,11 @@
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/spark/videoabstract/VideoInputFormat.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/ffmpeg/util/CmdExecute.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/hadoop/DataBlockInfoExperiment.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/ffmpeg/split/FFMPEGSplitVideo.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/ffmpeg/split/VideoSplitAndUploadToHDFS.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/spark/videoabstract/VideoRecordReader.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/ffmpeg/exception/MadsnotepadException.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/ffmpeg/split/SplitVideo.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/spark/videoabstract/VideoAbstractAlgorithm.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/App.java
+/Users/andy/Documents/github/andy012/experiments/src/main/scala/com/shu/nita/hadoop/HadoopFile.java

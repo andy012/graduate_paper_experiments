@@ -1,0 +1,11 @@
+com/shu/nita/ffmpeg/split/VideoSplitAndUploadToHDFS.class
+com/shu/nita/hadoop/DataBlockInfoExperiment.class
+com/shu/nita/App.class
+com/shu/nita/ffmpeg/split/SplitVideo.class
+com/shu/nita/spark/videoabstract/VideoAbstractAlgorithm.class
+com/shu/nita/ffmpeg/split/FFMPEGSplitVideo.class
+com/shu/nita/ffmpeg/util/CmdExecute.class
+com/shu/nita/spark/videoabstract/VideoRecordReader.class
+com/shu/nita/spark/videoabstract/VideoInputFormat.class
+com/shu/nita/ffmpeg/exception/MadsnotepadException.class
+com/shu/nita/hadoop/HadoopFile.class
