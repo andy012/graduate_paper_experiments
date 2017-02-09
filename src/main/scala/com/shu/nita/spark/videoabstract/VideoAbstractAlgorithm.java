@@ -16,7 +16,10 @@ public class VideoAbstractAlgorithm {
         HadoopFile hadoopFile = new HadoopFile();
 
         try {
+            long t1=System.currentTimeMillis();
             hadoopFile.downloadFile(folder + filename, localFilePath);
+            long t2=System.currentTimeMillis();
+            System.out.println("Download"+filename+":"+(t2-t1));
         }catch (Exception e){
             e.printStackTrace();
             return "error!"+folder+filename;
@@ -24,6 +27,7 @@ public class VideoAbstractAlgorithm {
 
         Process process = null;
         try {
+            long t1=System.currentTimeMillis();
             process = Runtime.getRuntime().exec(new String[]{"/root/VideoAbstractApp",localFilePath+filename,localFilePath,"result"+filename});
             //process = Runtime.getRuntime().exec(new String[]{"find","/","-name","root"});
             BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -32,6 +36,8 @@ public class VideoAbstractAlgorithm {
                 System.out.println(line);
             }
             process.waitFor();
+            long t2=System.currentTimeMillis();
+            System.out.println("execute time:"+filename+(t2-t1));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
