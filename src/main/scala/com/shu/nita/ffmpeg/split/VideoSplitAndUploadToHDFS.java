@@ -35,8 +35,8 @@ public class VideoSplitAndUploadToHDFS {
         HadoopFile t = new HadoopFile();
         t.DeleteDir("/data/abstract/"+folderName);
         t.MakeDir("/data/abstract/"+folderName);
-//        for(int i=1;i<j;i++){
-        for(int i=1;i<5;i++){
+        for(int i=1;i<j;i++){
+        //for(int i=1;i<5;i++){
             String outputFilename=filename.substring(0,filename.indexOf("."))+i+filename.substring(filename.indexOf("."),filename.length());
             t.sendFile("hdfs://192.168.3.105:9000/data/abstract/"+folderName,outputFilename);
             File file =new File(outputFilename);
@@ -77,7 +77,7 @@ public class VideoSplitAndUploadToHDFS {
 
     public static void main(String[] args){
         //splitUploadWithoutHadoopUpload("/Users/andy/Desktop/video/LostInTranslation.avi",80);
-        splitUpload("/Users/andy/Desktop/video/LostInTranslation.avi",20,"test1");
+        splitUpload("/home/havstack/video/LostInTranslation.avi",80,"test2");
     }
 
 }
