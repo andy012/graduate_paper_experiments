@@ -11,6 +11,8 @@ import org.apache.hadoop.hdfs.server.namenode.FSNamesystem;
 import org.apache.hadoop.hdfs.server.namenode.NameNode;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -41,9 +43,94 @@ public class DataBlockInfoExperiment {
             e.printStackTrace();
         }
     }
+    public List<LocatedBlock> getAllBlocks(String hdfsPath){
+//        Path path=new Path(hdfsPath);
+        List<LocatedBlock> locatedBlockList=null;
+        try {
+            DFSClient dfsClient = new DFSClient(conf);
+            locatedBlockList = dfsClient.open(hdfsPath).getAllBlocks();
+            for (LocatedBlock locatedBlock:locatedBlockList){
+                System.out.println(locatedBlock.toString());
+
+                System.out.println(locatedBlock.getBlock());
+                System.out.println(locatedBlock.getLocations()[0].getName());
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return locatedBlockList;
+    }
+
+    public void showBlock(){
+        HashMap<String,List<String>> hashMap = new HashMap<String, List<String>>();
+        for(int i=1;i<=20;++i){
+            String path="/data/abstract/test2/LostInTranslation"+i+".avi";
+            List<LocatedBlock> locatedBlockList=getAllBlocks(path);
+
+            for (LocatedBlock locatedBlock:locatedBlockList){
+
+                for(int j=0;j<3;++j){
+
+                    if(hashMap.containsKey(locatedBlock.getLocations()[j].getName())){
+
+                        hashMap.get(locatedBlock.getLocations()[j].getName()).add(path);
+
+                    }else {
+                        List<String> list=new LinkedList<String>();
+                        hashMap.put(locatedBlock.getLocations()[j].getName(),list);
+                        hashMap.get(locatedBlock.getLocations()[j].getName()).add(path);
+
+                    }
+                }
+            }
+
+        }
+
+        for (String key:hashMap.keySet()){
+            System.out.println(key);
+            for (String str:hashMap.get(key)){
+                System.out.println("\t"+str);
+            }
+        }
+
+    }
+    public void showBlock(String path){
+        HashMap<String,List<String>> hashMap = new HashMap<String, List<String>>();
+
+        List<LocatedBlock> locatedBlockList=getAllBlocks(path);
+
+        for (LocatedBlock locatedBlock:locatedBlockList){
+
+            for(int j=0;j<3;++j){
+
+                if(hashMap.containsKey(locatedBlock.getLocations()[j].getName())){
+                    hashMap.get(locatedBlock.getLocations()[j].getName()).add(locatedBlock.getBlock().toString());
+
+                }else {
+                    List<String> list=new LinkedList<String>();
+                    hashMap.put(locatedBlock.getLocations()[j].getName(),list);
+                    hashMap.get(locatedBlock.getLocations()[j].getName()).add(locatedBlock.getBlock().toString());
+
+                }
+            }
+        }
+
+        for (String key:hashMap.keySet()){
+            System.out.println(key);
+            for (String str:hashMap.get(key)){
+                System.out.println("\t"+str);
+            }
+        }
+
+    }
 
     public static void main(String[] args) {
         DataBlockInfoExperiment dataBlockInfoExperiment = new DataBlockInfoExperiment();
-        dataBlockInfoExperiment.getBlocks("/data/abstract/test2/LostInTranslation1.avi");
+        //dataBlockInfoExperiment.getBlocks("/data/abstract/test2/LostInTranslation1.avi");
+
+        dataBlockInfoExperiment.showBlock("/video/LostInTranslation2.avi");
+
     }
 }
