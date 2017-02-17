@@ -25,24 +25,24 @@ public class VideoAbstractAlgorithm {
             return "error!"+folder+filename;
         }
 
-        Process process = null;
-        try {
-            long t1=System.currentTimeMillis();
-            process = Runtime.getRuntime().exec(new String[]{"/root/VideoAbstractApp",localFilePath+filename,localFilePath,"result"+filename});
-            //process = Runtime.getRuntime().exec(new String[]{"find","/","-name","root"});
-            BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line=null;
-            while ((line=in.readLine())!=null){
-                System.out.println(line);
-            }
-            process.waitFor();
-            long t2=System.currentTimeMillis();
-            System.out.println("execute time:"+filename+(t2-t1));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        Process process = null;
+//        try {
+//            long t1=System.currentTimeMillis();
+//            process = Runtime.getRuntime().exec(new String[]{"/root/VideoAbstractApp",localFilePath+filename,localFilePath,"result"+filename});
+//            //process = Runtime.getRuntime().exec(new String[]{"find","/","-name","root"});
+//            BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//            String line=null;
+//            while ((line=in.readLine())!=null){
+//                System.out.println(line);
+//            }
+//            process.waitFor();
+//            long t2=System.currentTimeMillis();
+//            System.out.println("execute time:"+filename+(t2-t1));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
 
         return "success!"+folder+filename;

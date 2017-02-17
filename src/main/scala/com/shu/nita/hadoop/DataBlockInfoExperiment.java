@@ -44,6 +44,6 @@ public class DataBlockInfoExperiment {
 
     public static void main(String[] args) {
         DataBlockInfoExperiment dataBlockInfoExperiment = new DataBlockInfoExperiment();
-        dataBlockInfoExperiment.getBlocks("/data/abstract/test2/LostInTranslation1.avi");
+        dataBlockInfoExperiment.getBlocks("/data/abstract/test2/LostInTranslation20.avi");
     }
 }

@@ -117,7 +117,7 @@ public class HadoopFile {
 
             FSDataOutputStream fsOut=localFS.create(new Path(localPath+"/"+hadPath.getName()));
             FSDataInputStream fsIn=hadoopFS.open(hadPath);
-            byte[] buf =new byte[1024];
+            byte[] buf =new byte[1024*16];
             int readbytes=0;
             while ((readbytes=fsIn.read(buf))>0){
                 fsOut.write(buf,0,readbytes);
